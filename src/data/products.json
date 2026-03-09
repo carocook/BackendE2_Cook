@@ -4,7 +4,7 @@
     "title": "Mouse Logitech G502",
     "description": "Sensor HERO 25K",
     "code": "LOGG502",
-    "price": 85000,
+    "price": 90000,
     "status": true,
     "stock": 20,
     "category": "tecnologia",
@@ -18,6 +18,28 @@
     "price": 120000,
     "status": true,
     "stock": 15,
+    "category": "tecnologia",
+    "thumbnails": []
+  },
+  {
+    "id": 4,
+    "title": "Teclado Logitech K950",
+    "description": "Bluethoot",
+    "code": "LOG950B",
+    "price": 150000,
+    "status": true,
+    "stock": 5,
+    "category": "tecnologia",
+    "thumbnails": []
+  },
+  {
+    "id": 5,
+    "title": "Impresora HP350",
+    "description": "Laser",
+    "code": "HP350",
+    "price": 350000,
+    "status": true,
+    "stock": 4,
     "category": "tecnologia",
     "thumbnails": []
   }
