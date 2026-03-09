@@ -1,6 +1,6 @@
 # 🛒 Backend Ecommerce
 
-API REST desarrollada con **Node.js y Express** para la gestión de productos y carritos de compra.
+API REST desarrollada con **Node.js y Express** para la gestión de productos y carritos de compra. Además, el proyecto incluye renderizado de vistas con Handlebars y actualización de productos en tiempo real utilizando Socket.io.
 
 La persistencia de datos se realiza mediante archivos JSON (`products.json` y `carts.json`).
 
@@ -10,23 +10,35 @@ La persistencia de datos se realiza mediante archivos JSON (`products.json` y `c
 
 - Node.js
 - Express
+- Express Handlebars
+- Socket.io
 - File System (fs)
-- Postman
 
 ---
 
 ## 📂 Estructura del Proyecto
 
 ```bash
-BackendE1_Cook
+BackendE2_Cook
 ├── src
 │ ├── app.js
 │ ├── routes
 │ │ ├── products.router.js
 │ │ └── carts.router.js
+│ │ └── views.router.js
 │ ├── managers
 │ │ ├── ProductManager.js
 │ │ └── CartManager.js
+│ │ ├── public
+│ │ └── js
+│      └── realtime.js
+│ │ ├── views
+│ │ ├── layouts
+│ │ │ └── main.handlebars
+│ │ │
+│ │ ├── home.handlebars
+│ │ └── realTimeProducts.handlebars
+│ │
 │ └── data
 │ ├── products.json
 │ └── carts.json
@@ -42,7 +54,7 @@ BackendE1_Cook
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/carocook/BackendE1_Cook.git
+git clone https://github.com/carocook/BackendE2_Cook.git
 ```
 
 2. Instalar dependencias:
@@ -63,106 +75,31 @@ npm run dev
 http://localhost:8080
 ```
 
-## 📦 Endpoints
+## 🖥️ Vistas disponibles
 
-- URL
+Página principal
+http://localhost:8080/
 
-```bash
-http://localhost:8080/api/products
+Muestra la lista de productos renderizada con Handlebars.
 
-```
+### Productos en tiempo real
 
-#### Endpoints Productos
+http://localhost:8080/realtimeproducts
 
-🔹 GET /
+Panel interactivo que permite:
 
-Lista todos los productos.
+📦 visualizar productos
 
-🔹 GET /:pid
+➕ agregar productos
 
-Obtiene un producto por ID.
+✏️ editar productos
 
-🔹 POST /
+❌ eliminar productos
 
-Crea un nuevo producto.
-
-- Formato de JSON requerido:
-
-```bash
-{
-  "title": "String",
-  "description": "String",
-  "code": "String",
-  "price": 0,
-  "status": true,
-  "stock": 0,
-  "category": "String",
-  "thumbnails": ["img1.jpg"]
-}
-```
-
-🔹 PUT /:pid
-
-Actualiza un producto por ID.
-
-🔹 DELETE /:pid
-
-Elimina un producto por ID.
-
-#### Endpoints Carrito
-
-- URL
-
-```bash
-http://localhost:8080/api/carts
-
-```
-
-🔹 POST /
-
-Crea un nuevo carrito.
-
-- Formato de JSON requerido:
-
-```bash
-{
-  "id": 1,
-  "products": []
-}
-```
-
-🔹 GET /:cid
-
-Lista los productos de un carrito específico.
-
-🔹 POST /:cid/product/:pid
-
-Agrega un producto al carrito.
-
----
-
-## 💾 Persistencia
-
-La información se almacena en:
-
-`products.json`
-
-`carts.json`
-
-Los datos permanecen guardados incluso al reiniciar el servidor.
-
----
-
-## 🧪 Pruebas
-
-Todas las pruebas fueron realizadas con Postman.
-
-Se puede importar la colección incluida en el repositorio para replicar las requests.
+La lista se actualiza automáticamente utilizando WebSockets con Socket.io.
 
 ---
 
 ## 👩‍💻 Desarrollado por
 
 **Carolina Cook**
-
-📌 Proyecto académico – Backend con Node.js y Express
